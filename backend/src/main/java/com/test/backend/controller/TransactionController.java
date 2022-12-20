@@ -13,6 +13,7 @@ import com.test.backend.model.Transaction;
 import com.test.backend.service.TransactionService;
 import com.test.backend.service.ValidationErrorService;
 
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RestController
 @RequestMapping("/transaction")
 public class TransactionController {

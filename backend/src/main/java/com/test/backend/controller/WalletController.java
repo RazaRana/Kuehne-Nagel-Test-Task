@@ -12,6 +12,7 @@ import com.test.backend.model.Wallet;
 import com.test.backend.service.ValidationErrorService;
 import com.test.backend.service.WalletService;
 
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RestController
 @RequestMapping("/wallet")
 public class WalletController {
