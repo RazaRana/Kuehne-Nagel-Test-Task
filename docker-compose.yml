@@ -10,7 +10,7 @@ services:
     depends_on:
       - db
     ports:
-      - 3001:3001
+      - "3001:3001"
     env_file:
       - .env.docker
     working_dir: /app
@@ -24,19 +24,25 @@ services:
     env_file:
       - .env.docker
     ports:
-      - 3000:3000
+      - "3000:3000"
     working_dir: /app
 
   db:
     image: postgres:13.4-alpine
     ports:
-      - 5432:5432
+      - "5432:5432"
     env_file:
       - .env.docker
 
   pgadmin:
     image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+      GUNICORN_ACCESS_LOGFILE: "/dev/null"
     env_file:
       - .env.docker
+    depends_on:
+      - db
     ports:
-      - "3002:80"
+      - "3002:3002"
